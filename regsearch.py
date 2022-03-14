@@ -1,9 +1,11 @@
-"""Prints lines and filenames of all files in provided directory that match
+"""Prints lines and filenames of all basic text files in provided directory that match
 the provided regular expression.
 
 Functions:
     folder_exists(str) -> Path | bool
     regex_finder(re object, Path) -> dict
+
+#TODO: Search PDFs, search Word docs, etc. https://automatetheboringstuff.com/2e/chapter15/
 """
 
 import re
@@ -28,10 +30,10 @@ def folder_exists(folder_name: str) -> Union[Path, bool]:
     folder_holder = []
     folder_path = False
     #pyip,inputMenu only accepts strings and returns strings
-    for i, WindowsPath in enumerate(name_results):
-        if WindowsPath.is_dir():
-            folder_holder.append(str(WindowsPath))
-    if folder_holder == []:
+    for i, windows_path in enumerate(name_results):
+        if windows_path.is_dir():
+            folder_holder.append(str(windows_path))
+    if not folder_holder:
         pass
     elif len(folder_holder) == 1:
         folder_path = Path(folder_holder[0])
@@ -41,7 +43,7 @@ def folder_exists(folder_name: str) -> Union[Path, bool]:
     return folder_path
 
 def regex_finder(regex, directory: Path) -> dict:
-    """Return all lines that match the regex from files in directory.
+    """Return all lines that match the regex from basic text files in directory.
 
     Output is a dictionary with keys being the filenames of all files with matching
     lines and values being lists of of those lines in the following format:
@@ -86,5 +88,3 @@ if __name__ == "__main__":
     matches = regex_finder(regex, folder_found)
 
     pprint.pprint(matches)
-
-
