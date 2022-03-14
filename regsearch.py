@@ -57,12 +57,11 @@ def regex_finder(regex, directory: Path) -> dict:
                 #there's a UnicodeDecodeError that's popping up which I'm not sure how to resolve...
                 #just gonna silence the errors...
                 all_lines = f.readlines()
-                for line in all_lines:
+                for line_num, line in enumerate(all_lines, start = 1):
                     if regex.search(line):
                         matching_files.setdefault(file.name, [])
                         matched_file = matching_files[file.name]
                         match_num = str(len(matched_file) + 1)
-                        line_num = str(all_lines.index(line))
                         entry = f"Match #{match_num}, Line {line_num}: {line}"
                         matched_file.append(entry)
         except PermissionError:
