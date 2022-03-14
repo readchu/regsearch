@@ -32,7 +32,7 @@ def folder_exists(folder_name: str) -> Union[Path, bool]:
             if WindowsPath.is_dir():
                 folder_holder.append(str(WindowsPath))
     if folder_holder == []:
-        continue
+        pass
     elif len(folder_holder) == 1:
         folder_path = Path(folder_holder[0])
     else:
