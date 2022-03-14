@@ -7,13 +7,13 @@ Functions:
 
 #TODO: Search PDFs, search Word docs, etc. https://automatetheboringstuff.com/2e/chapter15/
 """
-
-import re
+import logging
 import pprint
-import pyinputplus as pyip
+import re
 from pathlib import Path
 from typing import Union
-import logging
+
+import pyinputplus as pyip
 
 logging.basicConfig(
     filename="regsearch_DEBUG.txt",
