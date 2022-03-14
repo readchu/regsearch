@@ -31,7 +31,9 @@ def folder_exists(folder_name: str) -> Union[Path, bool]:
     for i, WindowsPath in enumerate(name_results):
             if WindowsPath.is_dir():
                 folder_holder.append(str(WindowsPath))
-    if len(folder_holder) == 1:
+    if folder_holder == []:
+        continue
+    elif len(folder_holder) == 1:
         folder_path = Path(folder_holder[0])
     else:
         print("You have multiple folders with that name. Choose one of them. Tip: Use the numbers.\n")
