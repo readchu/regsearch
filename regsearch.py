@@ -29,8 +29,8 @@ def folder_exists(folder_name: str) -> Union[Path, bool]:
     folder_path = False
     #pyip,inputMenu only accepts strings and returns strings
     for i, WindowsPath in enumerate(name_results):
-            if WindowsPath.is_dir():
-                folder_holder.append(str(WindowsPath))
+        if WindowsPath.is_dir():
+            folder_holder.append(str(WindowsPath))
     if folder_holder == []:
         pass
     elif len(folder_holder) == 1:
